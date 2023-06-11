@@ -11,7 +11,7 @@ async function expense(e){
           const token=localStorage.getItem("token");
           console.log(token);
           
-          const response=await axios.post("http://localhost:3000/expense/add-expense",expense_Details,{headers:{"Authorization":token}});
+          const response=await axios.post("http://107.23.251.77:3000/expense/add-expense",expense_Details,{headers:{"Authorization":token}});
           console.log(response);
     }
     catch(err){
@@ -42,7 +42,7 @@ window.addEventListener("DOMContentLoaded", () => {
         showPremium();
         showLeaderBoard();
     }      
-    axios.get(`http://localhost:3000/expense/get-expense?page=${page}`,{headers:{"Authorization":token}})
+    axios.get(`http://107.23.251.77:3000/expense/get-expense?page=${page}`,{headers:{"Authorization":token}})
     .then((response) => {
        console.log(response)
     //    for(var i=0;i<response.length;i++){
@@ -60,7 +60,7 @@ window.addEventListener("DOMContentLoaded", () => {
 })
 function getExpenses(page){
     const token=localStorage.getItem('token')
-    axios.get(`http://localhost:3000/expense/get-expense?page=${page}`,{headers:{"Authorization":token}})
+    axios.get(`http://107.23.251.77:3000/expense/get-expense?page=${page}`,{headers:{"Authorization":token}})
     .then(response=>{
         response.expenses.forEach((expense)=>{
             addNewExpensetoUI(expense);
@@ -105,7 +105,7 @@ function showLeaderBoard(){
     inputElement.onclick=async()=>{
         const token=localStorage.getItem('token')
         //const page =1;
-        const userLeaderBoardArray=await axios.get(`http://localhost:3000/premium/showLeaderBoard`,{headers:{"Authorization":token}})
+        const userLeaderBoardArray=await axios.get(`http://107.23.251.77:3000/premium/showLeaderBoard`,{headers:{"Authorization":token}})
         console.log("abCDDD",userLeaderBoardArray);
         const LeaderBoard=document.getElementById("leader");
         LeaderBoard.innerHTML+="<h1>LeaderBoard</h1>"
@@ -136,7 +136,7 @@ document.getElementById("message").appendChild(inputElement);
 // }
 // function deleteExpense(userid){
 //     const token=localStorage.getItem("token");   
-// axios.delete(`http://localhost:3000/expense/delete-expense/${userid}`,{headers:{"Authorization":token}})
+// axios.delete(`http://107.23.251.77:3000/expense/delete-expense/${userid}`,{headers:{"Authorization":token}})
 // .then((response) => {
 //    removeuserfromscreen(userid)
 
@@ -156,7 +156,7 @@ function addNewExpensetoUI(expense){
 }
 function deleteExpense(e,expenseid){
     const token=localStorage.getItem('token')
-    axios.delete(`http://localhost:3000/expense/delete-expense/${expenseid}`,{headers:{"Authorization":token}}).then(()=>{
+    axios.delete(`http://107.23.251.77:3000/expense/delete-expense/${expenseid}`,{headers:{"Authorization":token}}).then(()=>{
         console.log("hellooo ")
         console.log(expenseid)
         removeExpensefromUI(expenseid)
@@ -178,7 +178,7 @@ parentnode.removeChild(childnodeisdeleted)
 
 document.getElementById("rzp-button1").onclick=async function(e){
 const token=localStorage.getItem("token");
-const response=await axios.get("http://localhost:3000/purchase/premiummembership",{headers:{"Authorization":token}});
+const response=await axios.get("http://107.23.251.77:3000/purchase/premiummembership",{headers:{"Authorization":token}});
 console.log(response);
 var options=
 {
@@ -186,7 +186,7 @@ var options=
     "order_id":response.order.id,
     // handler use for success payment
     "handler":async function(response){
-       const res= await axios.post('http://localhost:3000/purchase/updatetransactionstatus',{
+       const res= await axios.post('http://107.23.251.77:3000/purchase/updatetransactionstatus',{
             order_id:options.order_id,
             payment_id:response.razorpay_payment_id,
         },{headers:{"Authorization":token}})
@@ -214,7 +214,7 @@ rzp1.on('payment failed',function(response){
 
 function download(){
     const token=localStorage.getItem('token');
-    axios.get('http://localhost:3000/user/download', { headers: {"Authorization" : token} })
+    axios.get('http://107.23.251.77:3000/user/download', { headers: {"Authorization" : token} })
     .then((response) => {
         console.log(response)
         if(response.status === 200){

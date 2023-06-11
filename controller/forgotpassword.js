@@ -23,7 +23,7 @@ exports.getForgotpassword=async(req,res,next)=>{
                 from: 'deepak545608@gmail.com',
                 subject: 'Sending with SendGrid is Fun',
                 text: 'and easy to do anywhere, even with Node.js',
-                html: `<h1>http://localhost:4000/password/resetpassword/${id}</h1>`,
+                html: `<h1>http://107.23.251.77:4000/password/resetpassword/${id}</h1>`,
             }
 
             sgMail

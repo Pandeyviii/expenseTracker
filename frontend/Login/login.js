@@ -9,7 +9,7 @@ async function login(e){
             password
         }
         console.log(loginDetails);
-        const response=await axios.post("http://localhost:3000/user/login",loginDetails);
+        const response=await axios.post("http://107.23.251.77:3000/user/login",loginDetails);
         console.log(response);
         if(response.status===200){
             localStorage.setItem("token",response.token)
