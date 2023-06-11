@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        signUp Page
+    </title>
+</head>
+<body>
+    <form class="expense" onsubmit="expense(event)">
+        <label for="expense_amount">Expense Amount</label>
+        <input type="number" name="expense_amount" id="id1" required>
+        <label for="Description">Choose Description</label>
+        <input type="text" name="description" id="id2" required>
+        <label for="category">Choose Category</label>
+        <select name="category" id="category id3">
+            <option value="Gym">Gym</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Movie">Movie</option>
+            <option value="Restuarnt">Restuarnt</option>
+        </select>
+        <!-- <input type="password" name="password" required> -->
+        <button type="submit">Add Expense</button><br>
+
+    </form>
+    <ul id="listofusers"></ul>
+    <div id="pagination">
+        
+    </div>
+    <button onclick="download()" id="downloadexpense" class="mydownload">Download File</button>
+    <button id="rzp-button1">Buy Premium</button>
+    <div id="message">
+
+    </div>
+    <div id="leader">
+
+    </div>
+    
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.2.0/axios.min.js"></script>
+    <script src="./expense.js"></script>
+ 
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Security-Policy" content="default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./signup.css">
+    <title>
+        signUp Page
+    </title>
+</head>
+<body>
+    <form class="signup" onsubmit="SignUp(event)">
+        <label for="">Enter your name</label>
+        <input type="text" name="name" required>
+        <label for="">Enter your email</label>
+        <input type="email" name="email" required>
+        <input type="password" name="password" required>
+        <button type="submit">SignUp</button>
+
+    </form>
+    <a href="../Login/login.html">Existing User -Login</a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.2.0/axios.min.js"></script>
+    <script src="./signup.js"></script>
+ 
+</body>
+</html>
